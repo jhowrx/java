@@ -7,8 +7,21 @@ public class Aluno {
 	private String cpf;
 	private String fone;
 	
+	//construtor padrao (sem parametros)
+	public Aluno() {
+		
+	}
 	
-	
+	public Aluno(String nome, String cpf, String fone) {
+		super();
+		this.nome = nome;
+		this.cpf = cpf;
+		this.fone = fone;
+	}
+
+
+
+
 	public Long getId() {
 		return id;
 	}
@@ -33,6 +46,9 @@ public class Aluno {
 	public void setFone(String fone) {
 		this.fone = fone;
 	}
-	
+	@Override
+	public String toString() {
+		return String.format("ID:%-5d Nome: %-20s cpf: %-15s Fone: %-15s", id, nome, cpf, fone);
+	}
 
 }
