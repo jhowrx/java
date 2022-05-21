@@ -2,6 +2,8 @@ package controller;
 
 import java.net.URL;
 
+import dao.AlunoDao;
+import dao.Conexao;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,11 +11,21 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 //Application ativa o JavaFX no projeto
-public class TestePrincipal extends Application {
+public class Principal extends Application {
+	
+	public static AlunoDao daoAluno = null;
 
 	public static void main(String[] args) {
-		launch();
-
+		
+		if (Conexao.conectar()) {
+			
+			daoAluno = new AlunoDao(Conexao.getConexao());
+			launch();
+			
+			Conexao.fecharConexao();
+			
+		}else
+			System.out.println("Falha de conexão com o banco");		
 	}
 
 	@Override

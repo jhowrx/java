@@ -1,4 +1,4 @@
-package model;
+package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class Conexao {
 
-	private static String urlConexao = "jdbc:mysql://localhost:3306/escola?useSSL=false&useTimezone=true&serverTimezone=UTC";
+	private static String stringConexao = "jdbc:mysql://localhost:3306/escola?useSSL=false&useTimezone=true&serverTimezone=UTC";
 	private static String usuario = "root";
 	private static String senha = "softgraf";
 	private static Connection conexao = null;
@@ -17,7 +17,7 @@ public class Conexao {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			System.out.println("Driver Ok");
 			
-			conexao = DriverManager.getConnection(urlConexao, usuario, senha); 
+			conexao = DriverManager.getConnection(stringConexao, usuario, senha); 
 			System.out.println("Conexão Ok");
 			
 		} catch (ClassNotFoundException e) {

@@ -3,8 +3,8 @@ package controller;
 import java.util.List;
 
 import dao.AlunoDao;
+import dao.Conexao;
 import model.Aluno;
-import model.Conexao;
 
 public class TesteConexao {
 

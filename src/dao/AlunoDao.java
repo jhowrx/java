@@ -43,13 +43,33 @@ public class AlunoDao implements Dao<Aluno>{
 	}
 
 	@Override
-	public boolean atualizar() {
-		// TODO Auto-generated method stub
+	public boolean atualizar(Aluno aluno) {
+		String sql = "UPDATE aluno SET nome=?, cpf=?, fone=? WHERE id=? ";
+		
+		PreparedStatement cmd;
+		try {
+			cmd = conexao.prepareStatement(sql);
+			cmd.setString(1, aluno.getNome());
+			cmd.setString(2, aluno.getCpf());
+			cmd.setString(3, aluno.getFone());
+			cmd.setLong(4, aluno.getId());
+			//retorna 1 ou n0
+			//retorna o número de linhas afetadas: 1
+			int retorno = cmd.executeUpdate();
+			//fecha o Statement
+			cmd.close();
+			return retorno > 0;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
 		return false;
 	}
 
 	@Override
-	public boolean buscar(long id) {
+	public Aluno buscar(long id) {
 		String sql = "SELECT * from Aluno WHERE id= ? ";
 		Aluno aluno = null;
 		
@@ -69,8 +89,9 @@ public class AlunoDao implements Dao<Aluno>{
 			
 		}catch (SQLException e) {
 			e.printStackTrace();
+			aluno = null;
 		}				
-		return false;
+		return aluno;
 	}
 
 	@Override

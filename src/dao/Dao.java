@@ -9,9 +9,9 @@ public interface Dao<T> {
 	
 	boolean inserir(T tipo);
 	
-	boolean atualizar();
+	boolean atualizar(T tipo);
 	
-	boolean buscar(long id);
+	T buscar(long id);
 	
 	List<T> listar();
 	
