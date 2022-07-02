@@ -1,0 +1,42 @@
+package com.softgraf.exemplos;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class PercorreLista {
+
+	public static void main(String[] args) {
+		List<String> frutas = new ArrayList();
+		frutas.add("uva");
+		frutas.add("maçã");
+		frutas.add("banana");
+		frutas.add("laranja");
+		frutas.add("kiwi");
+		frutas.add("pera");
+		
+		System.out.println("Percorrendo a lista com forma nominal");
+		for (int i=0; i<frutas.size();i++) {
+			System.out.println(frutas.get(i));
+		}
+		
+		System.out.println("\n Percorrendo com for each");
+		for (String f : frutas) {
+			System.out.println(f);
+		}
+		
+		//a partir do java 8
+		System.out.println("\n Percorrendo a lista com for each funcional");
+		frutas.forEach(System.out::println);
+		
+		
+		System.out.println("\n Percorrendo a coleção com iterator");
+		//obtém o iterator da lista
+		Iterator<String> iterator = frutas.iterator();
+		while (iterator.hasNext))
+		System.out.println();
+		
+
+	}
+
+}

@@ -1,0 +1,70 @@
+package com.softgraf.relogio;
+
+import java.awt.Font;
+import java.awt.Toolkit;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class JanelaRelogio extends JFrame {
+
+	
+	
+	private static final long serialVersionUID = 4449465731062643522L;
+	private JLabel lblHora;
+	private JButton btnIniciar, btnDormir, btnInterromper, btnFechar;
+
+
+	public JanelaRelogio() {
+		Toolkit tk = Toolkit.getDefaultToolkit(); //informações da tela
+		int largura = tk.getScreenSize().width; //largura da tela
+		
+		setSize(220, 270);
+		setLocation(largura - 220, 0);
+		setLayout(null);
+		
+		lblHora = new JLabel("00:00:00");
+		lblHora.setSize(150, 30);
+		lblHora.setLocation(50, 20);
+		//altera o tamanho da fonte
+		lblHora.setFont(new Font(lblHora.getName(), Font.PLAIN, 30));
+		add(lblHora);
+		
+		btnIniciar = new JButton("Iniciar");
+		btnIniciar.setSize(150, 30);
+		btnIniciar.setLocation(40, 70);
+		add(btnIniciar);
+		
+		btnDormir = new JButton("Dormir");
+		btnDormir.setSize(150, 30);
+		btnDormir.setLocation(40, 110);
+		add(btnDormir);
+		
+		btnInterromper = new JButton("Interromper");
+		btnInterromper.setSize(150, 30);
+		btnInterromper.setLocation(40, 150);
+		add(btnInterromper);
+		
+		btnFechar = new JButton("Fechar");
+		btnFechar.setSize(150, 30);
+		btnFechar.setLocation(40, 190);
+		add(btnFechar);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	public static void main(String[] args) {
+		
+			JFrame janela = new JanelaRelogio();
+			janela.setVisible(true);
+		}
+
+	}
+
+

@@ -1,0 +1,12 @@
+package com.softgraf.relogio;
+
+import javax.swing.JFrame;
+
+public class JanelaRelogio extends JFrame {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

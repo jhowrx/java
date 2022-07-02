@@ -1,0 +1,5 @@
+package com.softgraf.sincronizacao.isalive;
+
+public class MinhaThread {
+
+}

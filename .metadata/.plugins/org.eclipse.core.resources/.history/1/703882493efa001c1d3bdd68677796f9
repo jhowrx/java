@@ -1,0 +1,21 @@
+package redes;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+public class TesteUrl {
+
+	public static void main(String[] args) throws MalformedURLException {
+		
+		URL url = new URL("https://docs.oracle.com/javase/7/docs/api/java/net/URL.html");
+
+		
+		System.out.println(url.getPort());
+		System.out.println(url.getHost());
+		System.out.println(url.getPath());
+		System.out.println(url.getQuery());
+		System.out.println(url.getFile());
+		System.out.println(url.getRef());
+	}
+
+}

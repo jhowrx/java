@@ -1,0 +1,33 @@
+package com.softgraf.entity;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+
+import com.softgraf.util.JpaUtil;
+
+public class Atualizando2 {
+
+	public static void main(String[] args) {	
+		
+		EntityManager em = JpaUtil.getEntityManager(); //obtem o entityManager (grava, lista, busca e apaga entidades)
+		EntityTransaction tx = em.getTransaction();
+		
+		
+		//inicia a transação
+		tx.begin();
+	
+		//Recupera o cliente luiz pelo id
+		Cliente cliente = em.find(Cliente.class, 3	);
+		cliente.setNome("Márcio Oliveira dos Santos");
+		cliente.getEndereco().setRua("XV de Novembro, 333");
+		
+		//Confirma a transação
+		tx.commit();
+		
+		em.close();
+		JpaUtil.close();
+
+
+	}
+
+}

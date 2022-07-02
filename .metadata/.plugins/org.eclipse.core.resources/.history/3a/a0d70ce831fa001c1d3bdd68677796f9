@@ -1,0 +1,118 @@
+package com.softgraf.relogio;
+
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class JanelaRelogio extends JFrame implements Runnable{
+
+	
+	
+	private static final long serialVersionUID = 4449465731062643522L;
+	private JLabel lblHora;
+	private JButton btnIniciar, btnDormir, btnInterromper, btnFechar;
+	private SimpleDateFormat formatador;
+	private Thread threadRelogio;
+
+
+	public JanelaRelogio() {
+		Toolkit tk = Toolkit.getDefaultToolkit(); //informações da tela
+		int largura = tk.getScreenSize().width; //largura da tela
+		
+		setSize(220, 300);
+		setLocation(largura - 220, 0);
+		setLayout(null);
+		
+		lblHora = new JLabel("00:00:00");
+		lblHora.setSize(150, 30);
+		lblHora.setLocation(50, 20);
+		//altera o tamanho da fonte
+		lblHora.setFont(new Font(lblHora.getName(), Font.PLAIN, 30));
+		add(lblHora);
+		
+		btnIniciar = new JButton("Iniciar");
+		btnIniciar.setSize(150, 30);
+		btnIniciar.setLocation(40, 70);
+		add(btnIniciar);
+		
+		btnIniciar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				threadRelogio.start();
+				
+			}
+		});
+		
+		btnDormir = new JButton("Dormir");
+		btnDormir.setSize(150, 30);
+		btnDormir.setLocation(40, 110);
+		add(btnDormir);
+		
+		btnInterromper = new JButton("Interromper");
+		btnInterromper.setSize(150, 30);
+		btnInterromper.setLocation(40, 150);
+		add(btnInterromper);
+		
+		btnFechar = new JButton("Fechar");
+		btnFechar.setSize(150, 30);
+		btnFechar.setLocation(40, 190);
+		add(btnFechar);
+		
+		btnFechar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				
+			}
+		});
+		
+		formatador = new SimpleDateFormat("hh:mm:ss");
+		threadRelogio = new Thread(this);
+		
+	}
+	
+	@Override
+	public void dispose() {
+		System.out.println("Adeus!");
+		threadRelogio = null;
+		super.dispose();
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		
+			JFrame janela = new JanelaRelogio();
+			janela.setVisible(true);
+		}
+
+	@Override
+	public void run() {
+		System.out.println("Running...");
+		
+		while (threadRelogio != null) {
+			System.out.println("Atualizando hora...");
+			try{
+				Thread.sleep(1000);
+				
+			}catch (InterruptedException e) {
+				System.out.println("Thread interrompida");
+				e.printStackTrace();
+			}
+			
+			
+		}
+		
+	}
+
+}
+
+

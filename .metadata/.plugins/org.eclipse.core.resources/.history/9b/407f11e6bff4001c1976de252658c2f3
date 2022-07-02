@@ -1,0 +1,33 @@
+package com.softgraf.control;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
+import com.softgraf.entity.Cliente;
+import com.softgraf.entity.Endereco;
+import com.softgraf.util.JpaUtil;
+
+public class Consultando {
+
+	public static void main(String[] args) {
+		EntityManager em = JpaUtil.getEntityManager();
+		
+		//buscando cliente contendo a palavra "silva"
+		TypedQuery<Cliente> queryCarlos = em.createQuery("from Cliente c where c.nome like '%silva%'", Cliente.class);
+		List<Cliente> listaCarlos = queryCarlos.getResultList();
+		listaCarlos.forEach(System.out::println);	
+		
+		//buscando todos os endereços dos clientes
+		List<Endereco> lista = em.createQuery("select c.endereco from Cliente c where c.endereco.rua like '%xv%'", Endereco.class).getResultList();
+		lista.forEach(System.out::println);
+		
+		em.close();
+		JpaUtil.close();
+		
+		
+
+	}
+
+}

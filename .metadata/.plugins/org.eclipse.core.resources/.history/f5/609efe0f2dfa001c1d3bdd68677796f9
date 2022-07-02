@@ -1,0 +1,34 @@
+package com.softgraf.relogio;
+
+import java.awt.Toolkit;
+
+import javax.swing.JFrame;
+
+public class JanelaRelogio extends JFrame {
+
+	
+	public JanelaRelogio() {
+		Toolkit tk = Toolkit.getDefaultToolkit(); //informações da tela
+		int largura = tk.getScreenSize().width; //largura da tela
+		
+		setSize(220, 250);
+		setLocation(largura - 220, 0);
+		setLayout(null);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	public static void main(String[] args) {
+		
+			JFrame janela = new JanelaRelogio();
+			janela.setVisible(true);
+		}
+
+	}
+
+

@@ -1,0 +1,28 @@
+package com.softgraf.control;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
+import com.softgraf.entity.Pedido;
+import com.softgraf.util.JpaUtil;
+
+public class Listando {
+
+	public static void main(String[] args) {
+		EntityManager em = JpaUtil.getEntityManager();
+		
+		//Lista todos os pedidos da tabela (entidade) Pedido
+		//JPA usa JPQL ( Java Persistence Quere Language), mas também podemos usar SQL nativo
+		TypedQuery<Pedido> query = em.createQuery("from Pedido", Pedido.class);
+		List<Pedido> pedidos = query.getResultList();
+		
+		System.out.println("Lista de pedidos retornados");
+		for (Pedido p : pedidos) {
+			System.out.println(p);
+		}
+
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.softgraf.agendamento;
+
+public class TimerAgendamento {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,14 @@
+package redes;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+public class TesteUrl {
+
+	public static void main(String[] args) throws MalformedURLException {
+		
+		URL url = new URL("https://docs.oracle.com/javase/7/docs/api/java/net/URL.html");
+
+	}
+
+}
